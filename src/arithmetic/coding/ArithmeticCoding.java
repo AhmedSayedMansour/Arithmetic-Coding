@@ -18,7 +18,7 @@ public class ArithmeticCoding {
     }
     
     public static String decompress(Double code, int numSym){
-        Double Lower = 0.0 , Upper = 1.0 , newCode = code;
+        double Lower = 0.0 , Upper = 1.0 , newCode = code;
         String s="";
         for(int i=0 ; i<numSym ; ++i){
             for (Character c : rangeLow.keySet()) {
