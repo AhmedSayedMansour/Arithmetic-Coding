@@ -18,14 +18,15 @@ public class ArithmeticCoding {
     }
     
     public static String decompress(Double code, int numSym){
-        double Lower = 0.0 , Upper = 1.0 , newCode = code;
+        double Lower = 0.0 , Upper = 1.0 , newCode = code ,originLower;
         String s="";
         for(int i=0 ; i<numSym ; ++i){
             for (Character c : rangeLow.keySet()) {
                 if(newCode>rangeLow.get(c) && newCode<rangeHigh.get(c)){
                     s+=c;
-                    Lower = Lower + (Upper-Lower) * rangeLow.get(c);
-                    Upper = Lower + (Upper-Lower) * rangeHigh.get(c);
+                    originLower = Lower;
+                    Lower = originLower + (Upper-originLower) * rangeLow.get(c);
+                    Upper = originLower + (Upper-originLower) * rangeHigh.get(c);
                     newCode = (code - Lower)/(Upper - Lower);
                     break;
                 }
